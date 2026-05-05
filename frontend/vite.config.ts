@@ -6,10 +6,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
-    host: true
+    host: true,
   },
   preview: {
-    port: 3000,
-    host: true
-  }
+    // Railway injects PORT dynamically — don't hardcode it here
+    host: true,
+    allowedHosts: ['all'],
+  },
 })

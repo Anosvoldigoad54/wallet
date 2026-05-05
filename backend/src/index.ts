@@ -55,5 +55,10 @@ app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
 
 app.listen(PORT, async () => {
   console.log(`🚀 Server running on port ${PORT}`);
-  await initDB();
+  try {
+    await initDB();
+  } catch (err) {
+    // Log but do not crash — missing DATABASE_URL will show up clearly in logs
+    console.error('❌ Could not initialize DB. Is DATABASE_URL set?', err);
+  }
 });
