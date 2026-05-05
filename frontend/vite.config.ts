@@ -9,8 +9,7 @@ export default defineConfig({
     host: true,
   },
   preview: {
-    // Railway injects PORT dynamically — don't hardcode it here
     host: true,
-    allowedHosts: ['all'],
+    allowedHosts: true, // This allows any domain to access the preview server on Railway
   },
 })
